@@ -17,5 +17,15 @@ class PublicController extends BaseController
     {
         return session('?user');
     }
+
+    public function show($uselayout = false, $template = '')
+    {
+        if ($this->request->isPjax()) {
+            // 临时关闭当前模板的布局功能
+            $this->view->config('tpl_cache', false);
+            $this->view->engine->layout(false);
+        }
+        exit($this->fetch($template));
+    }
 }
 

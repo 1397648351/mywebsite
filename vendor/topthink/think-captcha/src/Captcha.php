@@ -187,10 +187,7 @@ class Captcha
         } else {
             for ($i = 0; $i < $this->length; $i++) {
                 $code[$i] = $this->codeSet[mt_rand(0, strlen($this->codeSet) - 1)];
-                if($i==0)
-                    $codeNX = ($this->imageW - $this->length * $this->fontSize * 1.2) / 2;
-                else
-                    $codeNX += mt_rand($this->fontSize * 1.2, $this->fontSize * 1.6);
+                $codeNX += mt_rand($this->fontSize * 1.2, $this->fontSize * 1.6);
                 imagettftext($this->im, $this->fontSize, mt_rand(-40, 40), $codeNX, $this->fontSize * 1.6, $this->color, $this->fontttf, $code[$i]);
             }
         }

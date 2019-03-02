@@ -38,7 +38,7 @@ return [
         '__DIST__' => '/static/dist',
         '__VENDOR__' => '/static/vendor',
     ],
-    'layout_on'     =>  true,
+    'layout_on'     =>  false,
     'layout_name'   =>  'layout',
     'layout_item'   =>  '{*__CONTENT__*}'
 ];
