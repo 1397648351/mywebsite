@@ -1,0 +1,119 @@
+body {
+    font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.layui-layout-admin .layui-header {
+    height: 52px;
+    font-size: 22px;
+}
+
+.layui-layout-admin .layui-header .layui-nav {
+    position: absolute;
+    right: 0;
+}
+
+.layui-layout-admin .layui-nav .layui-nav-item {
+    line-height: 52px;
+}
+
+.layui-layout-admin .layui-header .layui-nav .layui-nav-child {
+    top: 57px;
+}
+
+.layui-layout-admin .layui-header .layui-logo {
+    width: auto;
+    line-height: 50px;
+    padding-left: 15px;
+    font-size: 22px;
+    color: #fff;
+}
+
+.layui-side-menu .layui-nav {
+    background: 0 0;
+}
+
+.layui-layout-admin .layui-side,
+.layui-layout-admin .layui-body {
+    top: 52px;
+    bottom: 58px;
+}
+
+.layui-layout-admin .layui-body {
+    background-color: #f2f2f2;
+}
+
+.layui-card-footer {
+    position: relative;
+    height: 50px;
+    line-height: 48px;
+    padding: 0 15px;
+    border-top: 1px solid #f6f6f6;
+    color: #333;
+    border-radius: 2px 2px 0 0;
+    font-size: 14px;
+}
+
+.layui-form-item:last-child {
+    margin-bottom: 0;
+}
+
+.layui-layout-admin .layui-side .layui-side-scroll {
+    width: 200px;
+    padding: 0;
+}
+
+.layui-layout-admin .layui-footer {
+    text-align: center;
+    height: 58px;
+    line-height: 58px;
+}
+
+.layui-footer.no-side,
+.layui-body.no-side {
+    left: 0;
+}
+
+.layui-side.no-footer,
+.layui-body.no-footer {
+    bottom: 0;
+}
+
+.layui-layout-admin .layui-body .layui-fluid {
+    padding: 12px;
+    background-color: #f2f2f2;
+}
+
+.eleTree {
+    width: 100%;
+    margin: auto;
+}
+
+.layui-progress.page-loading-progress,
+.layui-progress.page-loading-progress .layui-progress-bar {
+    border-radius: unset;
+}
+
+.layui-progress.page-loading-progress {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: #04162c;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3d4a5dd9;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #04162c;
+}

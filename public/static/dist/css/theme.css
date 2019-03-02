@@ -1,0 +1,47 @@
+.theme-default {
+
+}
+
+.theme-default .layui-layout-admin .layui-header,
+.theme-default .layui-layout-admin .layui-footer,
+.theme-default .layui-layout-admin .layui-side.layui-side-menu {
+    background-color: #2f4050 !important;
+    color: #fff;
+}
+
+.theme-dark-blue .layui-layout-admin .layui-header,
+.theme-dark-blue .layui-layout-admin .layui-footer,
+.theme-dark-blue .layui-layout-admin .layui-side.layui-side-menu {
+    background-color: #03152A !important;
+    color: #fff;
+}
+
+.theme-dark-blue .layui-nav-tree .layui-nav-child dd.layui-this,
+.theme-dark-blue .layui-nav-tree .layui-nav-child dd.layui-this a,
+.theme-dark-blue .layui-nav-tree .layui-this,
+.theme-dark-blue .layui-nav-tree .layui-this > a,
+.theme-dark-blue .layui-nav-tree .layui-this > a:hover,
+.theme-dark-blue .layui-nav-tree .layui-nav-bar,
+.theme-default .layui-laypage .layui-laypage-curr .layui-laypage-em,
+.theme-default .layui-nav .layui-this:after,
+.theme-default .layui-nav-bar,
+.theme-default .layui-nav-tree .layui-nav-itemed:after {
+    background-color: #3B91FF !important;
+}
+
+.theme-default .layui-nav-tree .layui-nav-child dd.layui-this,
+.theme-default .layui-nav-tree .layui-nav-child dd.layui-this a,
+.theme-default .layui-nav-tree .layui-this,
+.theme-default .layui-nav-tree .layui-this > a,
+.theme-default .layui-nav-tree .layui-this > a:hover,
+.theme-default .layui-nav-tree .layui-nav-bar,
+.theme-default .layui-laypage .layui-laypage-curr .layui-laypage-em,
+.theme-default .layui-nav .layui-this:after,
+.theme-default .layui-nav-bar,
+.theme-default .layui-nav-tree .layui-nav-itemed:after {
+    background-color: #3B91FF !important;
+}
+
+.theme-default .layui-card-header{
+    border-color: #ddd;
+}
