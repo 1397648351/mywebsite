@@ -20,6 +20,7 @@ class PublicController extends BaseController
 
     public function show($uselayout = false, $template = '')
     {
+        $this->view->engine->layout($uselayout);
         if ($this->request->isPjax()) {
             // 临时关闭当前模板的布局功能
             $this->view->config('tpl_cache', false);

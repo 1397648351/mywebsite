@@ -7,6 +7,6 @@ class IndexController extends PublicController
 {
     public function index()
     {
-        return $this->fetch();
+        return $this->show();
     }
 }

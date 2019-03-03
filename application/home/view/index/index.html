@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{*extend name="template/base" /*}
+{*block name="title"*}bitms-主页{*/block*}
+{*block name="other_css"*}
+{*/block*}
+{*block name="otherjsfile"*}
+<script src="__VENDOR__/jQuery/jquery.pjax.js" type="text/javascript" type="text/javascript"></script>
+{*/block*}
+{*block name="body"*}
+<div class="layout layout-admin">
+    <!-- body -->
+    <div class="progress page-loading-progress" id='page_progress'>
+        <div class="progress-bar" data-percent="20%"></div>
+    </div>
+    <!-- 内容主体区域 -->
+    <div class="fluid">
+        <div id="pjax-container">
+        </div>
+    </div>
+</div>
+{*/block*}
+{*block name="other_js"*}
+<!-- other js -->
+<script src="__DIST__/js/my.js" type="text/javascript" charset="UTF-8"></script>
+<script>
+    my.init();
+    setTimeout(function () {
+        my.progress($('#page_progress'),60);
+    },2000);
+</script>
+{*/block*}

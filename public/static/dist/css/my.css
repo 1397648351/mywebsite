@@ -6,6 +6,40 @@ body {
 
 }
 
+.progress{
+    position: relative;
+    height: 5px;
+    border-radius: 20px;
+    background-color: #e2e2e2;
+}
+
+.progress.page-loading-progress,
+.progress.page-loading-progress .progress-bar {
+    border-radius: unset;
+}
+
+.progress.page-loading-progress{
+    width: 100%;
+    /*display: none;*/
+    position: relative;
+    z-index: 1;
+}
+
+.progress .progress-bar{
+    position: absolute;
+    height: 5px;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 0;
+    background-color: #5FB878;
+    transition: width 300ms ease-out;
+}
+
+@keyframes my-progress {
+
+}
+
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
