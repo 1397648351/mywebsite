@@ -40,16 +40,19 @@ body {
     height: 2px;
     top: 0;
     left: 0;
-    right: 0;
     position: absolute;
     width: 0;
     background-color: #77b6ff;
     box-shadow: 0 0 10px rgba(119, 182, 255, .7);
-    transition: width .4s ease;
+    transition: width .4s ease 0s;
 }
 
-@keyframes my-progress {
+.progress.page-loading-progress .progress-bar{
+    transition:none;
+}
 
+.progress.page-loading-progress.is-loading .progress-bar{
+    transition: width .4s ease 0s;
 }
 
 ::-webkit-scrollbar {

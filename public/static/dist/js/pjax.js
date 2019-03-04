@@ -1,10 +1,11 @@
 $(document).pjax('a[data-pjax]', '#pjax-container');
 $(document).on('pjax:start', function () {
-});
-$(document).on('pjax:clicked', function (event) {
     my.progress('#page_progress', 0);
     $("#page_progress").addClass('is-loading');
+});
+$(document).on('pjax:clicked', function (event) {
     document.title = 'bitms-' + event.target.innerHTML;
+    my.progress('#page_progress', 15);
 });
 $(document).on('pjax:popstate', function (event) {
     console.log(event);
