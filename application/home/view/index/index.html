@@ -22,9 +22,16 @@
 <!-- other js -->
 <script src="__DIST__/js/my.js" type="text/javascript" charset="UTF-8"></script>
 <script>
-    my.init();
-    setTimeout(function () {
-        my.progress($('#page_progress'),60);
-    },2000);
+    $(function(){
+        my.init();
+        setTimeout(function () {
+            $(".progress.page-loading-progress").addClass('is-loading');
+            my.progress($('#page_progress'),60);
+            setTimeout(function () {
+                my.progress($('#page_progress'),100);
+                $(".progress.page-loading-progress").removeClass('is-loading');
+            },2000);
+        },2000);
+    });
 </script>
 {*/block*}

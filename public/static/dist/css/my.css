@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -6,9 +10,8 @@ body {
 
 }
 
-.progress{
+.progress {
     position: relative;
-    height: 5px;
     border-radius: 20px;
     background-color: #e2e2e2;
 }
@@ -18,22 +21,31 @@ body {
     border-radius: unset;
 }
 
-.progress.page-loading-progress{
+.progress.page-loading-progress {
     width: 100%;
-    /*display: none;*/
-    position: relative;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    transition: opacity .4s linear .4s;
     z-index: 1;
 }
 
-.progress .progress-bar{
-    position: absolute;
-    height: 5px;
+.progress.page-loading-progress.is-loading {
+    opacity: 1;
+    transition: none;
+}
+
+.progress .progress-bar {
+    height: 2px;
     top: 0;
     left: 0;
     right: 0;
+    position: absolute;
     width: 0;
-    background-color: #5FB878;
-    transition: width 300ms ease-out;
+    background-color: #77b6ff;
+    box-shadow: 0 0 10px rgba(119, 182, 255, .7);
+    transition: width .4s ease;
 }
 
 @keyframes my-progress {
