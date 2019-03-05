@@ -5,7 +5,6 @@
 {*block name="otherjsfile"*}
 <script src="__VENDOR__/jQuery/jquery.pjax.js" type="text/javascript" type="text/javascript"></script>
 <script src="__DIST__/js/my.js" type="text/javascript" charset="UTF-8"></script>
-<script src="__DIST__/js/pjax.js" type="text/javascript" charset="UTF-8"></script>
 {*/block*}
 {*block name="body"*}
 <div class="layout layout-admin">
@@ -22,5 +21,8 @@
 </div>
 {*/block*}
 {*block name="other_js"*}
+<script>
+    my.pjax();
+</script>
 <!-- other js -->
 {*/block*}

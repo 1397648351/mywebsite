@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
 }
 
@@ -47,11 +47,11 @@ body {
     transition: width .4s ease 0s;
 }
 
-.progress.page-loading-progress .progress-bar{
-    transition:none;
+.progress.page-loading-progress .progress-bar {
+    transition: none;
 }
 
-.progress.page-loading-progress.is-loading .progress-bar{
+.progress.page-loading-progress.is-loading .progress-bar {
     transition: width .4s ease 0s;
 }
 
