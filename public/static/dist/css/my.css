@@ -49,10 +49,21 @@ body {
 
 .progress.page-loading-progress .progress-bar {
     transition: none;
+    position: fixed;
 }
 
 .progress.page-loading-progress.is-loading .progress-bar {
     transition: width .4s ease 0s;
+}
+
+.header {
+    background-color: #24292e;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 16px 0;
+}
+
+@media (min-width: 1012px) {
+
 }
 
 ::-webkit-scrollbar {
