@@ -1,5 +1,5 @@
 {*extend name="template/base" /*}
-{*block name="title"*}bitms-主页{*/block*}
+{*block name="title"*}主页{*/block*}
 {*block name="other_css"*}
 {*/block*}
 {*block name="otherjsfile"*}
@@ -12,6 +12,9 @@
     <div class="progress page-loading-progress" id='page_progress'>
         <div class="progress-bar" data-percent="20%"></div>
     </div>
+    <div class="header">
+        aaa
+    </div>
     <!-- 内容主体区域 -->
     <div class="fluid">
         <div id="pjax-container">
@@ -22,7 +25,9 @@
 {*/block*}
 {*block name="other_js"*}
 <script>
-    my.pjax();
+    my.pjax({
+        element:'#page_progress',
+    });
 </script>
 <!-- other js -->
 {*/block*}
