@@ -29,6 +29,7 @@
             element: null,
             bar: '.progress-bar',
             loadingClass: 'is-loading',
+            title: 'data-title',
             startCallback: null,
             sendCallback: null,
             clickedCallback: null,
@@ -45,26 +46,26 @@
             my.progress(options.element, 0);
             bar.clientWidth;
             ele.addClass(options.loadingClass);
-            if(options.startCallback && typeof options.startCallback === "function"){
+            if (options.startCallback && typeof options.startCallback === "function") {
                 options.startCallback();
             }
         });
         $(document).on('pjax:send', function () {
             my.progress(options.element, 15);
-            if(options.sendCallback && typeof options.sendCallback === "function"){
+            if (options.sendCallback && typeof options.sendCallback === "function") {
                 options.sendCallback();
             }
         });
         $(document).on('pjax:clicked', function (event) {
-            document.title = event.target.innerHTML;
+            options.title && $(event.target).attr(options.title) && (document.title = $(event.target).attr(options.title));
             my.progress(options.element, 30);
-            if(options.clickedCallback && typeof options.clickedCallback === "function"){
+            if (options.clickedCallback && typeof options.clickedCallback === "function") {
                 options.clickedCallback();
             }
         });
         $(document).on('pjax:beforeReplace', function () {
             my.progress(options.element, 80);
-            if(options.beforeReplaceCallback && typeof options.beforeReplaceCallback === "function"){
+            if (options.beforeReplaceCallback && typeof options.beforeReplaceCallback === "function") {
                 options.beforeReplaceCallback();
             }
         });
@@ -73,7 +74,7 @@
             ele.removeClass(options.loadingClass);
             $(document).on('pjax:beforeReplace', function () {
                 my.progress(options.element, 80);
-                if(options.completeCallback && typeof options.completeCallback === "function"){
+                if (options.completeCallback && typeof options.completeCallback === "function") {
                     options.completeCallback();
                 }
             });

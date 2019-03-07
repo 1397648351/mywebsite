@@ -59,11 +59,28 @@ body {
 .header {
     background-color: #24292e;
     color: rgba(255, 255, 255, 0.7);
-    padding: 16px 0;
+    padding: 16px;
+    justify-content: space-between;
+}
+
+.header > *{
+    display: inline-block;
+    /*height: 25px;*/
+    padding: 0;
+}
+
+@media (min-width: 544px) {
+    .header {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
 }
 
 @media (min-width: 1012px) {
-
+    .header {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 }
 
 ::-webkit-scrollbar {
