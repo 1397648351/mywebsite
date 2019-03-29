@@ -1,5 +1,29 @@
 <a href="{*:url('Index/index2')*}" data-pjax data-title="test2">跳转到页面2</a>
-<div>页面1</div>
+<div>
+    <video id="movie" controls>
+    </video>
+</div>
 <script>
     my.init();
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', '{*:url("Index/video")*}', true);
+    xhr.responseType = 'blob';
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            let blob = this.response;
+            console.log(blob);
+            // 获取blob对象地址，并把值赋给容器
+            $("#movie").attr("src", URL.createObjectURL(blob));
+        }
+    };
+    // xhr.onload = function(e) {
+    //     if (this.status === 200) {
+    //         // 获取blob对象
+    //         let blob = this.response;
+    //         console.log(blob);
+    //         // 获取blob对象地址，并把值赋给容器
+    //         $("#movie").attr("src", URL.createObjectURL(blob));
+    //     }
+    // };
+    xhr.send()
 </script>
