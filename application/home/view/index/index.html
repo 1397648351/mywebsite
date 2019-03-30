@@ -1,32 +1,36 @@
-<a href="{*:url('Index/index2')*}" data-pjax data-title="test2">跳转到页面2</a>
-<div>
-    <video id="movie" controls >
-    </video>
-    <div>
-        <img width="300" height="300" src="__DIST__/images/bg.jpg">
+{*volist name="list" id="vo"*}
+<article class="article">
+    <header class="article-header">
+        <h2>
+            {*if $vo.type == 0*}
+            <a href="{*$vo.href*}" rel="bookmark">{*$vo.title*}</a>
+            {*elseif $vo.type == 1 /*}{*$vo.title*}
+            {*else /*}
+            {*/if*}
+        </h2>
+    </header>
+    <div class="article-content">
+        {*if $vo.type == 0*}
+        <p class="article-info">
+            {*$vo.date*}
+            {*//:url('Index/index', ['author'=>$vo.author])*}
+            <a href="/author/{*$vo.author*}" data-pjax>{*$vo.author*}</a>
+        </p>
+        {*$vo.content|raw*}
+        <p>
+            <a href="{*$vo.href*}">阅读全文&gt;&gt;</a>
+        </p>
+        {*else /*}
+        {*$vo.content*}
+        {*/if*}
     </div>
-</div>
+    {*if $vo.type == 0*}
+    <footer class="article-footer">
+        <a href="{*$vo.href*}">浏览(0)</a>
+    </footer>
+    {*/if*}
+</article>
+{*/volist*}
 <script>
     my.init();
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', '{*:url("Index/video")*}', true);
-    xhr.responseType = 'blob';
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            let blob = this.response;
-            console.log(blob);
-            // 获取blob对象地址，并把值赋给容器
-            $("#movie").attr("src", URL.createObjectURL(blob));
-        }
-    };
-    // xhr.onload = function(e) {
-    //     if (this.status === 200) {
-    //         // 获取blob对象
-    //         let blob = this.response;
-    //         console.log(blob);
-    //         // 获取blob对象地址，并把值赋给容器
-    //         $("#movie").attr("src", URL.createObjectURL(blob));
-    //     }
-    // };
-    xhr.send()
 </script>

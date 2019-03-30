@@ -28,5 +28,11 @@ class PublicController extends BaseController
 //        }
         exit($this->fetch($template));
     }
+
+    public function displayContent($uselayout = false, $content = '')
+    {
+        $this->view->engine->layout($uselayout && !$this->request->isPjax());
+        exit($this->display($content));
+    }
 }
 

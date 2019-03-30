@@ -69,18 +69,17 @@
                 options.beforeReplaceCallback();
             }
         });
-        $(document).on('pjax:complete', function () {
+        $(document).on('pjax:complete', function (event, opts, textStatus, xhr) {
             my.progress(options.element, 100);
             ele.removeClass(options.loadingClass);
-            $(document).on('pjax:beforeReplace', function () {
-                my.progress(options.element, 80);
-                if (options.completeCallback && typeof options.completeCallback === "function") {
-                    options.completeCallback();
-                }
-            });
+            if (options.completeCallback && typeof options.completeCallback === "function") {
+                options.completeCallback(event, opts, textStatus, xhr);
+            }
         });
         $(document).on('pjax:popstate', function (event) {
             console.log(event);
+        });
+        $(document).on('pjax:click', function (event, xhr) {
         });
     };
     window.my = new myjs();

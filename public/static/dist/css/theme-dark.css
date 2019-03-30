@@ -1,0 +1,106 @@
+body {
+    background-image: url(../images/bg.png);
+    background-position: left top;
+    background-size: auto;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    color: #eee;
+}
+
+.wrapper {
+}
+
+.progress .progress-bar {
+    background-color: #77b6ff;
+    box-shadow: 0 0 10px rgba(119, 182, 255, .7);
+}
+
+.header {
+}
+
+.nav-bar {
+    color: #efefef;
+}
+
+.nav-bar a:link,
+.nav-bar a:visited,
+.header h1 a:link,
+.header h1 a:visited,
+.article-header a:link,
+.article-header a:visited {
+    color: inherit;
+}
+
+.nav-bar .nav-item.current,
+.nav-bar .nav-item:hover {
+    background: #f9f9f9;
+    background: -moz-linear-gradient(#f9f9f9, #e5e5e5);
+    background: -o-linear-gradient(#f9f9f9, #e5e5e5);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f9f9f9), to(#e5e5e5));
+    background: -webkit-linear-gradient(#f9f9f9, #e5e5e5);
+    color: #373737;
+}
+
+.nav {
+    background: #333;
+    background: -moz-linear-gradient(#383838, #272727);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#383838), to(#272727));
+    background: -webkit-linear-gradient(#383838, #272727);
+    border-bottom: 1px solid #222;
+}
+
+.fluid {
+    background: #0f0f0f;
+}
+
+.nav,
+.content {
+    border: 0;
+}
+
+/* 滚动条整体部分 */
+::-webkit-scrollbar {
+    transition: opacity 1s;
+}
+
+::-webkit-scrollbar:window-inactive {
+    opacity: 0;
+}
+
+/* 滚动条两端的按钮 */
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* 外层轨道 */
+::-webkit-scrollbar-track {
+    background-color: #F1F1F1;
+}
+
+/* 内层轨道，滚动条中间部分（除去） */
+::-webkit-scrollbar-track-piece {
+    background-color: #F1F1F1;
+}
+
+/* 滚动条里面可以拖动的那个 */
+::-webkit-scrollbar-thumb {
+    background-color: #C1C1C1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #A8A8A8;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #787878;
+}
+
+/* 边角 */
+::-webkit-scrollbar-corner {
+    background-color: #DCDCDC;
+}
+
+/* 定义右下角拖动块的样式 */
+::-webkit-resizer {
+
+}

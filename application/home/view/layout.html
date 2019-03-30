@@ -7,20 +7,45 @@
 <script src="__DIST__/js/my.js" type="text/javascript" charset="UTF-8"></script>
 {*/block*}
 {*block name="body"*}
-<div class="layout layout-admin">
+<div class="wrapper">
     <!-- body -->
     <div class="progress page-loading-progress" id='page_progress'>
         <div class="progress-bar" data-percent="20%"></div>
     </div>
     <div class="header">
-        <div>ni</div>
+        <h1>
+            {*//:url('Index/index')*}
+            <a href="/" rel="home">星星'S_小站</a>
+        </h1>
     </div>
-    <marquee direction="left" behavior="scroll" scrollamount="2" loop="-1">hahaha</marquee>
+    <!--<marquee direction="left" behavior="scroll" scrollamount="2" loop="-1">hahaha</marquee>-->
+    <nav class="nav">
+        <ul class="nav-bar" id="nav">
+            <li class="nav-item current">
+                {*//:url('Index/index')*}
+                <a href="/" data-pjax data-title="首页" rel="home">首页</a>
+            </li>
+            <li class="nav-item">
+                {*//:url('Index/index','sort=2')*}
+                <a href="/sort/2" data-pjax data-title="测试">测试</a>
+            </li>
+        </ul>
+    </nav>
     <!-- 内容主体区域 -->
     <div class="fluid">
-        <div id="pjax-container">
+        <main class="content" id="pjax-container">
             {*__CONTENT__*}
-        </div>
+        </main>
+        <aside class="sidebar">
+            <ul>
+                <li>
+                    <h3>搜索</h3>
+                    <form method="get" action="{*:url('Index/index')*}" autocomplete="off">
+                        <input name="keyword" class="search" type="text" />
+                    </form>
+                </li>
+            </ul>
+        </aside>
     </div>
 </div>
 {*/block*}
@@ -28,6 +53,14 @@
 <script>
     my.pjax({
         element: '#page_progress',
+        completeCallback: function (event, opts, textStatus, xhr) {
+            var target = xhr.target;
+            $("#nav .nav-item.current").removeClass('current');
+            var parent = $(target).parent();
+            if (parent.length > 0) {
+                parent.addClass('current');
+            }
+        }
     });
 </script>
 <!-- other js -->

@@ -10,23 +10,99 @@ class IndexController extends PublicController
 {
     public function index()
     {
-        return $this->show(true);
-    }
-
-    public function index2()
-    {
-        return $this->show(true);
-    }
-
-    public function index3()
-    {
-        if (isset($_SERVER['HTTP_USER_AGENT'])) {
-            echo "isset";
+        $sort = $this->request->param('sort');
+        $author = $this->request->param('author');
+        $keyword = $this->request->param('keyword');
+        $list = null;
+        if (!empty($sort)) {
+            $list = $this->sort($sort);
+        } elseif (!empty($author)) {
+            $list = $this->author($author);
+        } elseif (!empty($keyword)) {
+            $list = $this->emptyData();
+        } else {
+            $list = $this->all();
         }
+        if (empty($list)) {
+            $list = $this->emptyData();
+        }
+        $this->assign('list', $list);
+        return $this->show(true);
     }
 
-    public function imgprotect(){
-        return $this->show(true);
+    private function all()
+    {
+        $list = array();
+        $item = [
+            'title' => '背景图片',
+            'href' => 'javascript:;',
+            'type' => 0,
+            'date' => date("Y-m-d"),
+            'author' => '星星',
+            'content' => '<p><img width="480" height="300" src="/static/dist/images/bg.png" alt="图片"/></p>背景图片'
+        ];
+        array_push($list, $item);
+        return $list;
+    }
+
+    private function sort($id)
+    {
+        $list = array();
+        $item = [
+            'title' => '背景图片',
+            'href' => 'javascript:;',
+            'type' => 0,
+            'date' => date("Y-m-d"),
+            'author' => '星星',
+            'content' => '<p><img width="480" height="300" src="/static/dist/images/bg.png" alt="图片"/></p>背景图片'
+        ];
+        array_push($list, $item);
+        return $list;
+    }
+
+    private function author($name)
+    {
+        $list = array();
+        $item = [
+            'title' => '未找到',
+            'href' => null,
+            'type' => 1,
+            'date' => null,
+            'author' => null,
+            'content' => '抱歉，没有符合您查询条件的结果。'
+        ];
+        array_push($list, $item);
+        return $list;
+    }
+
+    public function search($keyword)
+    {
+        $list = array();
+        $item = [
+            'title' => '未找到',
+            'href' => null,
+            'type' => 1,
+            'date' => null,
+            'author' => null,
+            'content' => '抱歉，没有符合您查询条件的结果。'
+        ];
+        array_push($list, $item);
+        return $list;
+    }
+
+    private function emptyData()
+    {
+        $list = array();
+        $item = [
+            'title' => '未找到',
+            'href' => null,
+            'type' => 1,
+            'date' => null,
+            'author' => null,
+            'content' => '抱歉，没有符合您查询条件的结果。'
+        ];
+        array_push($list, $item);
+        return $list;
     }
 
     public function file()
@@ -34,7 +110,6 @@ class IndexController extends PublicController
         $filename = $this->request->param('filename');
         if (empty($filename)) exit(1);
         $filepath = Env::get('root_path') . 'public/static/dist/images/' . $filename;
-        //header("Accept-Ranges: bytes");
         header("Content-type: " . $this->getImgData($filepath));
         $file = fopen($filepath, 'r') or die("Unable to open file!");
         echo fread($file, filesize($filepath));
@@ -46,32 +121,4 @@ class IndexController extends PublicController
         $img_data = getimagesize($filepath);
         return $img_data['mime'];
     }
-
-    public function video()
-    {
-        if ($this->request->isPost()) {
-            $filepath = Env::get('root_path') . 'public/static/dist/video/1.mp4';
-            header("Content-type: video/mp4");
-            header("Accept-Ranges: bytes");
-            $size = filesize($filepath);
-            header("Content-Length: " . $size);
-            if (isset($_SERVER['HTTP_USER_AGENT'])) {
-                if (stristr($_SERVER['HTTP_USER_AGENT'], 'FIREFOX')) {
-                    header("Content-Disposition: attachment;filename*=UTF-8''" . urldecode(basename($filepath)));
-                } else {
-                    header("Content-Disposition: attachment;filename=" . urldecode(basename($filepath)));
-                }
-            }
-            header("Content-Range: bytes " . 0 . "-" . ($size - 1) . "/" . $size);
-            $file = fopen($filepath, 'r') or die("Unable to open file!");
-            while (!feof($file)) {
-                echo fgets($file, 1024);
-            }
-            fclose($file);
-            // echo fread($file, $size);
-        } else {
-            throw new HttpException(404, '错误的请求！');
-        }
-    }
-
 }

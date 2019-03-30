@@ -15,6 +15,13 @@
 //
 //Route::get('hello/:name', 'index/hello');
 
-return [
 
+Route::get('think', function () {
+    return 'hello,ThinkPHP5!';
+});
+
+Route::get('sort/:id', 'Index/index?sort=:id');
+Route::get('author/:author', 'Index/index?author=:author');
+
+return [
 ];
