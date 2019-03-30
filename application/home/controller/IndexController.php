@@ -25,6 +25,28 @@ class IndexController extends PublicController
         }
     }
 
+    public function imgprotect(){
+        return $this->show(true);
+    }
+
+    public function file()
+    {
+        $filename = $this->request->param('filename');
+        if (empty($filename)) exit(1);
+        $filepath = Env::get('root_path') . 'public/static/dist/images/' . $filename;
+        //header("Accept-Ranges: bytes");
+        header("Content-type: " . $this->getImgData($filepath));
+        $file = fopen($filepath, 'r') or die("Unable to open file!");
+        echo fread($file, filesize($filepath));
+        fclose($file);
+    }
+
+    private function getImgData($filepath)
+    {
+        $img_data = getimagesize($filepath);
+        return $img_data['mime'];
+    }
+
     public function video()
     {
         if ($this->request->isPost()) {
@@ -42,7 +64,7 @@ class IndexController extends PublicController
             }
             header("Content-Range: bytes " . 0 . "-" . ($size - 1) . "/" . $size);
             $file = fopen($filepath, 'r') or die("Unable to open file!");
-            while(!feof($file)){
+            while (!feof($file)) {
                 echo fgets($file, 1024);
             }
             fclose($file);
