@@ -19,7 +19,7 @@ class IndexController extends PublicController
         } elseif (!empty($author)) {
             $list = $this->author($author);
         } elseif (!empty($keyword)) {
-            $list = $this->emptyData();
+            $list = $this->search($keyword);
         } else {
             $list = $this->all();
         }
@@ -75,7 +75,7 @@ class IndexController extends PublicController
         return $list;
     }
 
-    public function search($keyword)
+    private function search($keyword)
     {
         $list = array();
         $item = [
