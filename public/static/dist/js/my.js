@@ -1,9 +1,12 @@
 ;!function (window) {
     "use strict";
     var myjs = function () {
-        this.pjax_first = true;
+        this.hasPjax = false;
     };
-    myjs.prototype.init = function () {
+    myjs.prototype.init = function (pin) {
+        var options = $.extend(true, {
+
+        }, pin || {});
         var th = this, progress = $('.progress');
         if (progress.length > 0) {
             progress.each(function (index, element) {
@@ -30,6 +33,7 @@
             bar: '.progress-bar',
             loadingClass: 'is-loading',
             title: 'data-title',
+            readyCallback: null,
             startCallback: null,
             sendCallback: null,
             clickedCallback: null,
@@ -41,7 +45,11 @@
         if (!ele) return;
         var bar = ele.find(options.bar).get(0);
         if (!bar) return;
+        this.hasPjax = true;
         $(document).pjax('[data-pjax] a, a[data-pjax]', '#pjax-container');
+        if (options.readyCallback && typeof options.readyCallback === "function") {
+            options.readyCallback();
+        }
         $(document).on('pjax:start', function () {
             my.progress(options.element, 0);
             bar.clientWidth;

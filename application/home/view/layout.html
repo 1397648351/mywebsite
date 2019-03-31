@@ -41,7 +41,7 @@
                 <li>
                     <h3>搜索</h3>
                     <form method="get" action="{*:url('Index/index')*}" autocomplete="off">
-                        <input name="keyword" class="search" type="text" />
+                        <input name="keyword" class="search" type="text"/>
                     </form>
                 </li>
             </ul>
@@ -53,6 +53,9 @@
 <script>
     my.pjax({
         element: '#page_progress',
+        readyCallback: function () {
+
+        },
         completeCallback: function (event, opts, textStatus, xhr) {
             var target = xhr.target;
             $("#nav .nav-item.current").removeClass('current');
