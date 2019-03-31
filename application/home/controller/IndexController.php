@@ -49,7 +49,7 @@ class IndexController extends PublicController
     {
         $list = array();
         $item = [
-            'title' => '背景图片',
+            'title' => '背景图片' . $id,
             'href' => 'javascript:;',
             'type' => 0,
             'date' => date("Y-m-d"),

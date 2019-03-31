@@ -20,11 +20,12 @@ class PublicController extends BaseController
 
     public function show($uselayout = false, $template = '')
     {
+        //dump($uselayout && !$this->request->isPjax());exit(0);
         $this->view->engine->layout($uselayout && !$this->request->isPjax());
 //        if ($this->request->isPjax()) {
 //            // 临时关闭当前模板的布局功能
 //            $this->view->config('tpl_cache', false);
-//            $this->view->engine->layout(false);
+           //$this->view->engine->layout(false);
 //        }
         exit($this->fetch($template));
     }

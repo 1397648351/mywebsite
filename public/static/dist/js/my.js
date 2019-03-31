@@ -4,9 +4,7 @@
         this.hasPjax = false;
     };
     myjs.prototype.init = function (pin) {
-        var options = $.extend(true, {
-
-        }, pin || {});
+        var options = $.extend(true, {}, pin || {});
         var th = this, progress = $('.progress');
         if (progress.length > 0) {
             progress.each(function (index, element) {
@@ -32,6 +30,7 @@
             element: null,
             bar: '.progress-bar',
             loadingClass: 'is-loading',
+            title_prefix: '',
             title: 'data-title',
             readyCallback: null,
             startCallback: null,
@@ -65,7 +64,7 @@
             }
         });
         $(document).on('pjax:clicked', function (event) {
-            options.title && $(event.target).attr(options.title) && (document.title = $(event.target).attr(options.title));
+            options.title && $(event.target).attr(options.title) && (document.title = (options.title_prefix ? options.title_prefix : '') + $(event.target).attr(options.title));
             my.progress(options.element, 30);
             if (options.clickedCallback && typeof options.clickedCallback === "function") {
                 options.clickedCallback();

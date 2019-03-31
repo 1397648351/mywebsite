@@ -19,7 +19,7 @@ return [
     // 应用地址
     'app_host'               => '',
     // 应用调试模式
-    'app_debug'              => true,
+    'app_debug'              => false,
     // 应用Trace
     'app_trace'              => false,
     // 是否支持多模块
@@ -138,9 +138,9 @@ return [
 
     'http_exception_template'=>  [
         // 定义404错误的模板文件地址
-        404 =>  Env::get('app_path') . 'common/view/404.html',
+        404 =>  Env::get('app_path') . 'home/view/error/404.html',
         // 还可以定义其它的HTTP status
-        500 =>  Env::get('app_path') . 'common/view/500.html',
+        500 =>  Env::get('app_path') . 'home/view/error/500.html',
     ],
 
     // 错误显示信息,非调试模式有效

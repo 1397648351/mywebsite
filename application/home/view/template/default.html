@@ -10,7 +10,7 @@
     <meta name="keywords" content=''>
     <meta name="description" content="">
     <meta name="author" content="wu">
-    <title>{*block name="title"*}网站标题{*/block*}</title>
+    <title>星星'S_小站{*block name="title"*}{*/block*}</title>
     <!-- Set render engine for 360 browser -->
     <meta name="renderer" content="webkit">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -27,13 +27,44 @@
     <!--[if lte IE 8 ]>
     <script src="__VENDOR__/jQuery/jquery-1.11.3.min.js" type="text/javascript"></script>
     <![endif]-->
+    <script src="__VENDOR__/jQuery/jquery.pjax.js" type="text/javascript" type="text/javascript"></script>
+    <script src="__DIST__/js/my.js" type="text/javascript" charset="UTF-8"></script>
     {*block name="otherjsfile"*}
     <!-- other js -->
     {*/block*}
 </head>
 <body>
-{*block name="body"*}content{*/block*}
-{*block name="content"*}{*/block*}
+<div class="wrapper">
+    <!-- body -->
+    {*include file="template/header"*}
+    <!-- 内容主体区域 -->
+    <div class="fluid">
+        <main class="content" id="pjax-container">
+            {*block name="content"*}
+            <!-- content -->
+            {*__CONTENT__*}
+            {*/block*}
+        </main>
+        {*include file="template/sidebar"*}
+    </div>
+</div>
+<script>
+    my.pjax({
+        element: '#page_progress',
+        title_prefix: '星星\'S_小站-',
+        readyCallback: function () {
+
+        },
+        completeCallback: function (event, opts, textStatus, xhr) {
+            var target = xhr.target;
+            $("#nav .nav-item.current").removeClass('current');
+            var parent = $(target).parent();
+            if (parent.length > 0) {
+                parent.addClass('current');
+            }
+        }
+    });
+</script>
 {*block name="other_js"*}
 <!-- other js -->
 {*/block*}
