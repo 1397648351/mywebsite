@@ -12,7 +12,7 @@ a:hover {
 }
 
 .wrapper {
-    width: 960px;
+    width: 1190px;
     margin: 0 auto;
     text-align: left;
 }
@@ -127,7 +127,7 @@ a:hover {
 }
 
 .content {
-    width: 720px;
+    width: 75%;
     min-height: 300px;
     padding: 0 20px 20px 20px;
     border-style: inherit;
@@ -165,7 +165,7 @@ a:hover {
     position: absolute;
     top: 0;
     right: 0;
-    width: 240px;
+    width: 25%;
     padding: 0 20px 20px 20px;
     font-size: 12px;
 }
@@ -186,6 +186,12 @@ a:hover {
 }
 
 @media (min-width: 1012px) {
+}
+
+@media screen and (max-width: 1189px) {
+    .wrapper{
+        width: 990px;
+    }
 }
 
 ::-webkit-scrollbar {
