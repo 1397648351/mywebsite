@@ -127,7 +127,7 @@ a:hover {
 }
 
 .content {
-    width: 75%;
+    width: 950px;
     min-height: 300px;
     padding: 0 20px 20px 20px;
     border-style: inherit;
@@ -165,12 +165,12 @@ a:hover {
     position: absolute;
     top: 0;
     right: 0;
-    width: 25%;
+    width: 240px;
     padding: 0 20px 20px 20px;
     font-size: 12px;
 }
 
-.search{
+.search {
     background-image: url(../images/search.png);
     background-position: 3px center;
     background-repeat: no-repeat;
@@ -189,8 +189,12 @@ a:hover {
 }
 
 @media screen and (max-width: 1189px) {
-    .wrapper{
+    .wrapper {
         width: 990px;
+    }
+
+    .content {
+        width: 750px;
     }
 }
 
