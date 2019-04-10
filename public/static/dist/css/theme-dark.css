@@ -7,6 +7,10 @@ body {
     color: #eee;
 }
 
+a:link, a:active, a:visited {
+    color: #1982d1;
+}
+
 .wrapper {
 }
 
@@ -51,11 +55,16 @@ body {
 
 .fluid {
     background: #0f0f0f;
+    border-width: 0;
 }
 
 .nav,
 .content {
-    border: 0;
+    border-width: 0;
+}
+
+.content {
+    border-right: 1px solid #222;
 }
 
 /* 滚动条整体部分 */
