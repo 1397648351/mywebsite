@@ -16,7 +16,6 @@ main{
 }
 
 .wrapper {
-    width: 1190px;
     margin: 0 auto;
     text-align: left;
 }
@@ -131,7 +130,7 @@ main{
 }
 
 .content {
-    width: 950px;
+    width: calc(100% - 240px);
     min-height: 300px;
     padding: 0 20px 20px 20px;
     border-style: inherit;
@@ -190,16 +189,19 @@ main{
 }
 
 @media (min-width: 1012px) {
+    .wrapper{
+        width: 90%;
+    }
 }
 
 @media screen and (max-width: 1189px) {
-    .wrapper {
+    /*.wrapper {
         width: 990px;
     }
 
     .content {
         width: 750px;
-    }
+    }*/
 }
 
 ::-webkit-scrollbar {
