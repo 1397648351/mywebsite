@@ -11,7 +11,7 @@ a:hover {
     text-decoration: underline;
 }
 
-main{
+main {
     display: block;
 }
 
@@ -185,11 +185,22 @@ main{
     padding: 4px 10px 4px 24px;
 }
 
+.bg-header {
+    background: #F6F8F9;
+    background: -moz-linear-gradient(top, #F6F8F9 0%, #D7DEE3 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #F6F8F9), color-stop(100%, #D7DEE3));
+    background: -webkit-linear-gradient(top, #F6F8F9 0%, #D7DEE3 100%);
+    background: -o-linear-gradient(top, #F6F8F9 0%, #D7DEE3 100%);
+    background: -ms-linear-gradient(top, #F6F8F9 0%, #D7DEE3 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F6F8F9', endColorstr='#D7DEE3', GradientType=0);
+    background: linear-gradient(top, #F6F8F9 0%, #D7DEE3 100%);
+}
+
 @media (min-width: 544px) {
 }
 
 @media (min-width: 1012px) {
-    .wrapper{
+    .wrapper {
         width: 90%;
     }
 }
